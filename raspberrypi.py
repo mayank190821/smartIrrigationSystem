@@ -1,12 +1,12 @@
 import serial
 import RPI.GPIO as GPIO
 import pynmea2
-import Adafruit_DHT
+import Adafruit_DHT as dht
 import http.client as client
 from threading import Thread
 import requests
 
-webhost = 'http://dc.glaitm.org:7080'
+webhost = 'http://dc.glaitm.org:7080/Thingworx'
 app_key = '1102de3b-669e-440c-b85b-c2b09a5245ac'
 thingname = 'team1_smart_irrigation_system'
 prop_1 = "humidity"
@@ -16,7 +16,10 @@ prop_4 = "latitude"
 prop_5 = "moisture"
 GPIO.setmode(GPIO.BOARD)
 global moisture
-
+global humidity
+global temp
+global lat
+global lng
 
 def gps():
     gpsSerial = serial.Serial('/dev/ttyAMC0', 9600)
@@ -52,7 +55,7 @@ def mainMQtt():
     mqtt_client.loop_start()
 
 
-def GSMMOdule():
+def gsmMOdule():
     class GSM_MODULE:
         def __init__(self, pino_pwr, pino_rst, pin, number, message):
                 self.pino_pwr = pino_pwr
@@ -276,8 +279,26 @@ def GSMMOdule():
 
                 while end_tread:
                     last_received = ser.readline()
+def dhtValue():
+    humidity,temp = dht.read_retry(dht.DHT22,4)
+    
+
 
 if __name__ == "__main__":
     while True:
+        gsmModule()
         mainMQtt()
         gps()
+        dhtValue()
+        headers = {
+            'Content-Type':'application/json',
+            'appKey':app_key,
+            }
+        payload = {
+            prop_1:humidity,
+            prop_2:temp,
+            prop_3:lng,
+            prop_4:lat,
+            prop_5:moisture,
+            }
+        
