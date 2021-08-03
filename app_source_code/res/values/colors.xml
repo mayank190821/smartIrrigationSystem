@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="themeBack">#293B5F</color>
+    <color name="themeLight">#dbe6fd</color>
+    <color name="transparent">#00000000</color>
+    <color name="colorSecondary">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#0965AE</color>
+    <color name="colorPink">#B50DC1</color>
+    <color name="colorOrange">#EFB70E</color>
+    <color name="colorGreen">#49BD09</color>
+    <color name="colorPurple">#7A23CF</color>
+    <color name="colorAccent">#E91E63</color>
+    <color name="colorLightBack">#FAF9F2</color>
+    <color name="gray">#ECECE9</color>
+</resources>
