@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SmartIrrigation</string>
+    <string name="enter_your_phone_number">Enter your mobile number</string>
+    <string name="what_is_my_number">What is your number</string>
+    <string name="select_country">select country</string>
+    <string name="_91">+91</string>
+    <string name="next">Next</string>
+    <string name="login">Login with OTP</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="send_otp">send otp</string>
+    <string name="humidity">Humidity</string>
+    <string name="value">value</string>
+    <string name="temperature">Temperature</string>
+    <string name="_70">70%</string>
+    <string name="_24_c">24°C</string>
+    <string name="_94">94%</string>
+    <string name="overview">Overview</string>
+    <string name="todo">TODO</string>
+    <string name="smart_drip_irrigation_system">Smart drip irrigation system</string>
+    <string name="moisture">Moisture</string>
+    <string name="longitude_45_e">Longitude : 45°E</string>
+    <string name="latitude_4_n">Latitude : 4°N</string>
+    <string name="copyright_team1">© Copyright Team1</string>
+</resources>
