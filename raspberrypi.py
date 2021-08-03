@@ -14,11 +14,14 @@ prop_2 = "temp"
 prop_3 = "Longitude"
 prop_4 = "moisture"
 GPIO.setmode(GPIO.BOARD)
+relayPin = 21
+GPIO.setup(relayPin,GPIO.OUT)
 global moisture
 global humidity
 global temp
 global lat
 global lng
+
 
 def gps():
     gpsSerial = serial.Serial('/dev/ttyAMC0', 9600)
@@ -282,13 +285,18 @@ def dhtValue():
     humidity,temp = dht.read_retry(dht.DHT22,4)
     
 def relay():
-    
+    #controlling solenoid valve
+    if int(moisture) < 30:
+        GPIO.output(relayPin,True)
+    else:
+        GPIO.output(relayPin,False)
 
 if __name__ == "__main__":
     while True:
         gsmModule()
         mainMQtt()
         gps()
+        relay()
         try:
             dhtValue()
             headers = {
